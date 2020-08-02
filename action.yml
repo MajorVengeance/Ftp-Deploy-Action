@@ -1,19 +1,23 @@
 name: 'FTP Deploy'
 description: 'Deploy a set of files via FTP'
 inputs:
-  ftp-host:
+  ftp_host:
     description: "FTP host"
     required: true
-  ftp-username:
+  ftp_port:
+    description: "The port used for FTP"
+    required: false
+    default: 21
+  ftp_username:
     description: "FTP username"
     required: true
-  ftp-password:
+  ftp_password:
     description: "FTP password"
     required: true
-  local-source-dir:
+  local_source_dir:
     description: "The local folder to copy"
     required: true
-  dist-target-dir:
+  dist_target_dir:
     description: "The remote folder"
     required: true
   delete:
@@ -24,7 +28,7 @@ inputs:
     description: "Ignore file(s) and/or directorie(s)"
     required: false
     default: ""
-  disable-ssl-certificate-verification:
+  disable_ssl_certificate_verification:
     description: "Disable SSL certificate verification"
     required: false
     default: "true"
