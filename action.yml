@@ -1,4 +1,4 @@
-name: 'FTP Deploy'
+name: 'LFTP Deploy'
 description: 'Deploy a set of files via FTP'
 inputs:
   ftp_host:
