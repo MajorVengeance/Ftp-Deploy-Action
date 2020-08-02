@@ -1,13 +1,36 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'FTP Deploy'
+description: 'Deploy a set of files via FTP'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  ftp-host:
+    description: "FTP host"
     required: true
-    default: '1000'
-outputs:
-  time: # output will be available to future steps
-    description: 'The message to output'
+  ftp-username:
+    description: "FTP username"
+    required: true
+  ftp-password:
+    description: "FTP password"
+    required: true
+  local-source-dir:
+    description: "The local folder to copy"
+    required: true
+  dist-target-dir:
+    description: "The remote folder"
+    required: true
+  delete:
+    description: "Delete files not present in the local folder on the remote folder"
+    required: false
+    default: "false"
+  exclude:
+    description: "Ignore file(s) and/or directorie(s)"
+    required: false
+    default: ""
+  disable-ssl-certificate-verification:
+    description: "Disable SSL certificate verification"
+    required: false
+    default: "true"
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: "docker"
+  image: "Dockerfile"
+branding:
+  icon: "upload-cloud"
+  color: "blue"
